@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+### Vagrant template
+.vagrant/
+
+### Composer template
+composer.phar
+vendor/
+composer.lock
+
+.idea
+
+rethinkdb_data
