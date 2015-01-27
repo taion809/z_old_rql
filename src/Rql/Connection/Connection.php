@@ -67,6 +67,14 @@ abstract class Connection implements ConnectionInterface
     }
 
     /**
+     * @return bool
+     */
+    public function getConnected()
+    {
+        return $this->connected;
+    }
+
+    /**
      * @param ConnectionInterface $connection
      */
     public function setConnection(ConnectionInterface $connection)
@@ -95,21 +103,21 @@ abstract class Connection implements ConnectionInterface
         $binaryProtocol = pack("V", \Rql\Generated\VersionDummy\Protocol::JSON);
         $handshake .= $binaryProtocol;
 
-        $sent = $this->write($handshake);
-        if(! $sent) {
-            throw new \Exception('Handshake failed.');
+        try {
+            $this->write($handshake);
+        } catch(\Exception $e) {
+            $this->close();
+            throw new \Exception('Handshake failed.', 0, $e);
         }
 
         // Read SUCCESS\000 from stream.
         $response = '';
         while(true) {
-
-            $r = $this->read(1);
-            
-
-            if($r === false || strlen($r) < 1) {
+            try {
+                $r = $this->read(1);
+            } catch(\Exception $e) {
                 $this->close();
-                throw new \Exception('Handshake failed.');
+                throw new \Exception('Handshake failed.', 0, $e);
             }
 
             if($r == chr(0)) {
