@@ -8,7 +8,7 @@ php:
   - hhvm
 
 before_script:
-  - pecl install protocolbuffers
+  - pecl install https://github.com/chobie/php-protocolbuffers/archive/master.zip
   - composer self-update
   - composer install --no-interaction --prefer-source --dev -o
 
