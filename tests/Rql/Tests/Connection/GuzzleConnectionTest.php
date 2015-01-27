@@ -40,21 +40,6 @@ class GuzzleConnectionTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf($expected, $actual);
     }
 
-    public function testConnectReturnsSuccess()
-    {
-        $handle = fopen('php://temp', 'rw+');
-        fwrite($handle, 'SUCCESS' . chr(0));
-        fseek($handle, 0);
-
-        $stream = new NullWriteStream($handle);
-        $connection = new GuzzleConnection($stream);
-
-        $result = $connection->connect();
-
-        $connection->close();
-        $this->assertTrue($result);
-    }
-
     public function testWriteReturnsBytesWritten()
     {
         $handle = fopen('php://temp', 'w+');
