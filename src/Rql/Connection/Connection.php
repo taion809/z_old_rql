@@ -67,6 +67,22 @@ abstract class Connection implements ConnectionInterface
     }
 
     /**
+     * @param ConnectionInterface $connection
+     */
+    public function setConnection(ConnectionInterface $connection)
+    {
+        $this->connection = $connection;
+    }
+
+    /**
+     * @param bool $connected
+     */
+    public function setConnected($connected = true)
+    {
+        $this->connected = $connected;
+    }
+
+    /**
      * @return bool
      * @throws \Exception
      */
@@ -87,7 +103,10 @@ abstract class Connection implements ConnectionInterface
         // Read SUCCESS\000 from stream.
         $response = '';
         while(true) {
+
             $r = $this->read(1);
+            
+
             if($r === false || strlen($r) < 1) {
                 $this->close();
                 throw new \Exception('Handshake failed.');
@@ -231,7 +250,8 @@ abstract class Connection implements ConnectionInterface
         return (int) $headers['size'];
     }
 
-    abstract public static function makeConnection($resource, $options);
+    public static function makeConnection($resource, $options) {}
+
     abstract public function write($message);
     abstract public function read($bytes, $step = 0);
     abstract protected function getMetadata();

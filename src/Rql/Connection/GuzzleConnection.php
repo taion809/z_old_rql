@@ -103,7 +103,7 @@ class GuzzleConnection extends Connection
     /**
      * @return array|mixed|null
      */
-    protected function getMetadata()
+    public function getMetadata()
     {
         if(! $this->connected) {
             return [];
