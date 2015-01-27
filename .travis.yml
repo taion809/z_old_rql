@@ -7,7 +7,6 @@ php:
   - hhvm
 
 before_script:
-  - ./tests/ci/scripts/install_protobuf.sh
   - ./tests/ci/scripts/install_php_protobuf.sh
   - composer self-update
   - composer install --no-interaction --prefer-source --dev -o
