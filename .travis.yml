@@ -8,12 +8,8 @@ php:
   - hhvm
 
 before_script:
-  - wget https://github.com/chobie/php-protocolbuffers/archive/master.zip -O /tmp/protobuf.zip
-  - cd /tmp && unzip /tmp/protobuf.zip
-  - cd php-protocolbuffers-master
-  - phpize && ./configure --prefix=/usr && make && make install
-  - cd ~
-  - echo 'extension=protobuf.so' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - ./tests/ci/scripts/install_protobuf.sh
+  - ./tests/ci/scripts/install_php_protobuf.sh
   - composer self-update
   - composer install --no-interaction --prefer-source --dev -o
 
