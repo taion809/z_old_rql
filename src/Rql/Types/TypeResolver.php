@@ -49,7 +49,7 @@ class TypeResolver
     public static function make($type, $data)
     {
         $namespace = '\Rql\Types';
-        $type = ucfirst($type);
+        $type = ucfirst(strtolower($type));
 
         if($type == 'Object' || $type == 'Array') {
             $type .= 'Type';
