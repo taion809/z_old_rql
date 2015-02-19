@@ -6,13 +6,13 @@
  * Time: 9:52 AM
  */
 
-namespace Rql\Query\Queries;
+namespace Rql\Query;
 
 use Rql\Datum;
 use Rql\Generated\Term\TermType;
-use Rql\Query\Queries\Control\Json;
-use Rql\Query\Queries\Transformations\Limit;
-use Rql\Query\Queries\Writing\Insert;
+use Rql\Query\Control\Json;
+use Rql\Query\Transformations\Limit;
+use Rql\Query\Writing\Insert;
 use Rql\Types\TypeResolver;
 
 class Table extends Query

@@ -41,6 +41,11 @@ class TypeResolver
         }
     }
 
+    /**
+     * @param string $type
+     * @param mixed $data
+     * @return \Rql\Datum
+     */
     public static function make($type, $data)
     {
         $namespace = '\Rql\Types';

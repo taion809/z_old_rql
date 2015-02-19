@@ -6,10 +6,10 @@
  * Time: 9:31 PM
  */
 
-namespace Rql\Query\Queries\Db;
+namespace Rql\Query\Db;
 
 use Rql\Generated\Term\TermType;
-use Rql\Query\Queries\Query;
+use Rql\Query\Query;
 
 class DbList extends Query
 {

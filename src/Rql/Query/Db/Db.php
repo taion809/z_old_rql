@@ -6,11 +6,11 @@
  * Time: 10:45 PM
  */
 
-namespace Rql\Query\Queries\Db;
+namespace Rql\Query\Db;
 
 use Rql\Generated\Term\TermType;
-use Rql\Query\Queries\Query;
-use Rql\Query\Queries\Table;
+use Rql\Query\Query;
+use Rql\Query\Table;
 use Rql\Types\TypeResolver;
 
 class Db extends Query

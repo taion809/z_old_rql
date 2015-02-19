@@ -6,11 +6,11 @@
  * Time: 5:08 PM
  */
 
-namespace Rql\Query\Queries\Writing;
+namespace Rql\Query\Writing;
 
 use Rql\Datum;
 use Rql\Generated\Term\TermType;
-use Rql\Query\Queries\Query;
+use Rql\Query\Query;
 
 class Insert extends Query
 {

@@ -8,8 +8,6 @@
 
 namespace Rql;
 
-use Rql\Query\QueryBuilder;
-
 class Rql
 {
     public function builder()

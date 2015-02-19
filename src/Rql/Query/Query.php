@@ -6,7 +6,7 @@
  * Time: 10:37 PM
  */
 
-namespace Rql\Query\Queries;
+namespace Rql\Query;
 
 use Rql\Datum;
 use Rql\Transport;

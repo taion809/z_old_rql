@@ -6,10 +6,10 @@
  * Time: 3:08 PM
  */
 
-namespace Rql\Query\Queries\Aggregation;
+namespace Rql\Query\Aggregation;
 
 use Rql\Generated\Term\TermType;
-use Rql\Query\Queries\Query;
+use Rql\Query\Query;
 
 class Count extends Query
 {

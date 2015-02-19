@@ -6,13 +6,13 @@
  * Time: 9:31 PM
  */
 
-namespace Rql\Query\Queries\Db;
+namespace Rql\Query\Db;
 
 use Rql\Datum;
 use Rql\Generated\Term\TermType;
-use Rql\Query\Queries\Query;
+use Rql\Query\Query;
 
-class DbDrop extends Query
+class DbCreate extends Query
 {
     public function __construct(Datum $name)
     {
@@ -21,6 +21,6 @@ class DbDrop extends Query
 
     protected function getDatumType()
     {
-        return TermType::DB_DROP;
+        return TermType::DB_CREATE;
     }
 }

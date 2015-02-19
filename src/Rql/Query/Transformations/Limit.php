@@ -6,11 +6,11 @@
  * Time: 5:08 PM
  */
 
-namespace Rql\Query\Queries\Transformations;
+namespace Rql\Query\Transformations;
 
 use Rql\Datum;
 use Rql\Generated\Term\TermType;
-use Rql\Query\Queries\Query;
+use Rql\Query\Query;
 
 class Limit extends Query
 {

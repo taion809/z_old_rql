@@ -8,11 +8,11 @@
 
 namespace Rql;
 
-use Rql\Query\Queries\Db\Db;
-use Rql\Query\Queries\Db\DbCreate;
-use Rql\Query\Queries\Db\DbDrop;
-use Rql\Query\Queries\Db\DbList;
-use Rql\Query\Queries\Table;
+use Rql\Query\Db\Db;
+use Rql\Query\Db\DbCreate;
+use Rql\Query\Db\DbDrop;
+use Rql\Query\Db\DbList;
+use Rql\Query\Table;
 use Rql\Types\TypeResolver;
 
 class Builder
