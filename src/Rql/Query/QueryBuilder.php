@@ -10,7 +10,8 @@ namespace Rql\Query;
 
 use Rql\Generated\Query\QueryType;
 use Rql\Query\Queries\Aggregation\Count;
-use Rql\Query\Queries\Db;
+use Rql\Query\Queries\Db\Db;
+use Rql\Query\Queries\Db\DbCreate;
 use Rql\Query\Queries\Query;
 use Rql\Query\Queries\Table;
 use Rql\Transport;
@@ -41,11 +42,16 @@ class QueryBuilder
         return $this;
     }
 
-    public function table($name)
+    public function dbCreate($name)
     {
         $name = TypeResolver::resolve($name);
-        $this->node = new Table($this->node, $name);
+        $this->node = new DbCreate($name);
 
+        return $this;
+    }
+
+    public function table($name)
+    {
         return $this;
     }
 

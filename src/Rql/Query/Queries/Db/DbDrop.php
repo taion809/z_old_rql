@@ -2,25 +2,25 @@
 /**
  * Created by PhpStorm.
  * User: njohns
- * Date: 1/3/15
- * Time: 10:45 PM
+ * Date: 2/17/15
+ * Time: 9:31 PM
  */
 
-namespace Rql\Query\Queries;
+namespace Rql\Query\Queries\Db;
 
 use Rql\Datum;
 use Rql\Generated\Term\TermType;
-use Rql\Types\String;
+use Rql\Query\Queries\Query;
 
-class Db extends Query
+class DbDrop extends Query
 {
-    public function __construct($name)
+    public function __construct(Datum $name)
     {
         $this->terms[] = $name;
     }
 
     protected function getDatumType()
     {
-        return TermType::DB;
+        return TermType::DB_DROP;
     }
 }

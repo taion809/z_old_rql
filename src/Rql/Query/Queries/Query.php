@@ -9,6 +9,7 @@
 namespace Rql\Query\Queries;
 
 use Rql\Datum;
+use Rql\Transport;
 
 abstract class Query extends Datum
 {
@@ -43,6 +44,7 @@ abstract class Query extends Datum
     {
         $finalTerms = [];
         foreach($this->terms as $term) {
+            var_export($term);
             $finalTerms[] = $term->build();
         }
 
@@ -52,5 +54,11 @@ abstract class Query extends Datum
         }
 
         return [$this->getDatumType(), $finalTerms, (object) $finalOptions];
+    }
+
+    public function run(Transport $client)
+    {
+        $ast = $this->build();
+        return $client->run($ast);
     }
 }

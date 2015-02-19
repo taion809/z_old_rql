@@ -34,7 +34,19 @@ class Rql
 
             echo "==> Fetching count\n";
 
-            $count = $r->db('test')->table('testInserts')->count()->run();
+            $data = [
+                ['test_'.time() => time()],
+                ['test_'.time() => time()],
+                ['test_'.time() => time()]
+            ];
+
+            foreach($data as $d) {
+                $insert = Builder::table('testInserts')->insert($d)->run($r);
+
+                echo "==> Insert: " . var_export($insert['data'], true) . "\n";
+            }
+
+            $count = Builder::table('testInserts')->limit(2)->run($r);
 
             echo "==> Count: " . var_export($count['data'], true) . "\n";
         }
@@ -47,8 +59,6 @@ class Rql
         $connection->connect();
         $client = new Transport($connection);
 
-        $b = new QueryBuilder($client);
-
-        return $b;
+        return $client;
     }
 }

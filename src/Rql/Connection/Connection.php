@@ -215,6 +215,8 @@ abstract class Connection implements ConnectionInterface
             throw new \Exception('Response type missing');
         }
 
+	die(var_dump($response));
+
         // Do some extra stuff here like parse backtrace
 
         if($response['t'] == ResponseType::CLIENT_ERROR) {
