@@ -37,11 +37,21 @@ class Table extends Query
         return new Limit($this, TypeResolver::resolve($n));
     }
 
-    public function insert(array $data)
+    public function insert($data)
     {
-        // TODO: Implement proper type checking / coercion
-        $data = new Json(TypeResolver::make('json', $data));
+        if(is_object($data)) {
+            $data = TypeResolver::resolve($data);
+        } else {
+            new Json(TypeResolver::make('json', $data));
+        }
 
         return new Insert($this, $data);
+    }
+
+    public function get($primaryKey)
+    {
+        $primaryKey = TypeResolver::resolve($primaryKey);
+
+        return new Selecting\Get($this, $primaryKey);
     }
 }
